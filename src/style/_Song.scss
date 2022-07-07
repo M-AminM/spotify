@@ -1,0 +1,16 @@
+.song-info {
+    min-height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    img {
+        width: 20%;
+        border-radius: 50%;
+    }
+    h2 {
+        padding: 3rem 1rem 1rem 1rem;
+    }
+
+}

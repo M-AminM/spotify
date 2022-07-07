@@ -1,0 +1,14 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h3 {
+    font-weight: 400;
+    color: gray;
+}
+
+
+@import 'Player';
+@import 'Song';
