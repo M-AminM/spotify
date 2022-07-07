@@ -4,6 +4,8 @@ import Song from "./components/Song";
 import './style/app.scss';
 import data from './data/data.json';
 import { useRef } from "react";
+import Library from "./components/Library";
+import Nav from "./components/Nav"
 
 const App = () => {
   
@@ -15,6 +17,7 @@ const App = () => {
     duration: 0,
     animation: 0,
   });
+  const[libraryStatus, setLibraryStatus] = useState(false);
 
   const playRef = useRef();
 
@@ -28,14 +31,16 @@ const App = () => {
 
 
   return(
-    <div className="App">
+    <div className={`App  ${libraryStatus ? "library-active" : ""}`}>
+      <Nav libraryStatus={libraryStatus} setLibraryStatus={setLibraryStatus}/>
       <Song currentSong={currentSong}/>
       <Player playRef={playRef} isPlaying={isPlaying} setIsPlaying={setIsPlaying} songInfo={songInfo} setSongInfo={setSongInfo}/>
+      <Library songs={songs} setCurrentSong={setCurrentSong} libraryStatus={libraryStatus} />
+
       <audio 
       src={currentSong.audio} 
       ref={playRef}
-      onTimeUpdate={timeUpdateHandler}
-      >
+      onTimeUpdate={timeUpdateHandler}>
       </audio>
     </div>
   )

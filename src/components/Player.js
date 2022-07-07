@@ -27,11 +27,11 @@ const Player = ({playRef, isPlaying, setIsPlaying, songInfo, setSongInfo}) => {
         <div className="player">
             <div className="time-control">
                 <p>{showTime(songInfo.currentTime)}</p>
-                <input min={0} max={songInfo.duration} type="range" onChange={rangeHandler} value={songInfo.currentTime}/>
-                <p>{showTime(songInfo.duration)}</p>
+                <input min={0} max={songInfo.duration || 0} type="range" onChange={rangeHandler} value={songInfo.currentTime}/>
+                <p>{songInfo.duration ? showTime(songInfo.duration) : "0:00"}</p>
             </div>
             <div className="play-control">
-                <FontAwesomeIcon className="back" icon={faAngleLeft}/>
+                <FontAwesomeIcon className="back" icon={faAngleLeft}/>  
                 <FontAwesomeIcon onClick={playSongHandler} className="play" icon={isPlaying ? faPause : faPlay}/>
                 <FontAwesomeIcon className="forward" icon={faAngleRight}/>
             </div>
