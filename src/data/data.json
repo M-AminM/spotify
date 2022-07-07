@@ -1,0 +1,16 @@
+[
+    {
+        "title" : "Not afraid",
+        "artist": "Eminem",
+        "audio": "https://ts4.tarafdari.com/contents/user6984/content-sound/04_-_not_afraid.mp3",
+        "image": "https://m.media-amazon.com/images/M/MV5BMmVjNTViYmMtY2MxZS00NzJkLTlkNmUtNDc1ODAzMzExNjI1XkEyXkFqcGdeQXVyNzU3Nzk4MDQ@._V1_FMjpg_UX500_.jpg",
+        "id": 1
+    },
+    {
+        "title": "Low Tide",
+        "artist": "Yasper",
+        "image": "https://chillhop.com/wp-content/uploads/2022/05/18d934ab6d70d065944aabf9a05bef2a06ce770d-1024x1024.jpg",
+        "audio": "https://mp3.chillhop.com/serve.php/?mp3=36940",
+        "id": 2
+    }
+]
