@@ -6,7 +6,7 @@ const Nav = ({libraryStatus, setLibraryStatus}) => {
     return(
         <nav>
             <h1>Spotify</h1>
-            <button onClick={() => setLibraryStatus(!libraryStatus)}>Library <FontAwesomeIcon icon={faMusic}/></button>
+            <button onClick={() => setLibraryStatus(!libraryStatus)}>Musics <FontAwesomeIcon icon={faMusic}/></button>
            
         </nav>
     );

@@ -4,7 +4,6 @@
         "artist": "Eminem",
         "audio": "https://ts4.tarafdari.com/contents/user6984/content-sound/04_-_not_afraid.mp3",
         "image": "https://m.media-amazon.com/images/M/MV5BMmVjNTViYmMtY2MxZS00NzJkLTlkNmUtNDc1ODAzMzExNjI1XkEyXkFqcGdeQXVyNzU3Nzk4MDQ@._V1_FMjpg_UX500_.jpg",
-        "acrive": true,
         "id": 1
     },
     {
@@ -12,7 +11,6 @@
         "artist": "Eminem",
         "image": "https://upload.wikimedia.org/wikipedia/en/7/73/Venom_%28Eminem_song%29_single_cover.jpg",
         "audio": "https://cdn.avaa.cloud/files/musics/00/06/30/Eminem%20-%20Venom%20Music%20From%20The%20Motion%20Picture%20(128).mp3",
-        "active": false,
         "id": 2
     }
 ]

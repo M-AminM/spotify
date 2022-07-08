@@ -1,4 +1,4 @@
-const LibraryMusic = ({song, setCurrentSong, songs, playRef, isPlaying, setSongs}) => {
+const LibraryMusic = ({song, setCurrentSong, songs, playRef, isPlaying, setSongs, id}) => {
 
 
     const musicSelectHandler = async() => {
@@ -7,7 +7,7 @@ const LibraryMusic = ({song, setCurrentSong, songs, playRef, isPlaying, setSongs
 
 
         const newSong = songs.map((song) => {
-            if(song.id === song.id) {
+            if(song.id === id) {
                 return{
                     ...song, active: true,
                 }
@@ -17,6 +17,7 @@ const LibraryMusic = ({song, setCurrentSong, songs, playRef, isPlaying, setSongs
                 }
             }
         });
+        console.log(newSong);
         setSongs(newSong); 
         if(isPlaying) playRef.current.play();
     }
