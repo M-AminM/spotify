@@ -5,7 +5,9 @@ import './style/app.scss';
 import data from './data/data.json';
 import { useRef } from "react";
 import Library from "./components/Library";
-import Nav from "./components/Nav"
+import Nav from "./components/Nav";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+import Home from "./components/Home";
 
 const App = () => {
   
@@ -37,7 +39,16 @@ const App = () => {
 
   return(
     <div className={`App  ${libraryStatus ? "library-active" : ""}`}>
-      <Nav libraryStatus={libraryStatus} setLibraryStatus={setLibraryStatus}/>
+        <BrowserRouter>
+          <Switch>
+          <Route exact path="/" render={() =>
+            <>
+              <Home songs={songs}/>
+            </>}/>
+
+            <Route exact path="/track" render={() =>
+               <>
+                     <Nav libraryStatus={libraryStatus} setLibraryStatus={setLibraryStatus}/>
       <Song currentSong={currentSong}/>
       <Player playRef={playRef} isPlaying={isPlaying} setIsPlaying={setIsPlaying} songInfo={songInfo} setSongInfo={setSongInfo} currentSong={currentSong} setCurrentSong={setCurrentSong} songs={songs} setSongs={setSongs}/>
       <Library songs={songs} setCurrentSong={setCurrentSong} libraryStatus={libraryStatus} playRef={playRef} isPlaying={isPlaying} setSongs={setSongs}/>
@@ -50,6 +61,11 @@ const App = () => {
       onEnded={songEndHandler}
       >
       </audio>
+            </>}/>
+          </Switch>
+        </BrowserRouter>
+
+
     </div>
   )
 }

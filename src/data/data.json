@@ -12,5 +12,47 @@
         "image": "https://upload.wikimedia.org/wikipedia/en/7/73/Venom_%28Eminem_song%29_single_cover.jpg",
         "audio": "https://cdn.avaa.cloud/files/musics/00/06/30/Eminem%20-%20Venom%20Music%20From%20The%20Motion%20Picture%20(128).mp3",
         "id": 2
+    },
+    {
+        "title": "Lose yourself",
+        "artist": "Eminem",
+        "image": "https://i1.sndcdn.com/artworks-krvHj80IMCtcIWUw-ADDbuw-t500x500.jpg",
+        "audio": "http://www.s4.topseda.ir/99/01/09/EMINEM-lose_yourself-128.mp3",
+        "id": 3
+    },
+    {
+        "title": "In Da Club",
+        "artist": "50 Cent",
+        "image": "https://m.media-amazon.com/images/I/81AfVsNS7dL._SS500_.jpg",
+        "audio": "https://ts5.tarafdari.com/contents/user6984/content-sound/01_-_in_da_club.mp3",
+        "id": 4
+    },
+    {
+        "title": "Candy Shop",
+        "artist": "50 Cent",
+        "image": "https://hypeddit-gates-prod.s3.amazonaws.com/ei032n_coverartmanual",
+        "audio": "https://dl.karajsong.ir/1400/8/single/128/50-Cent-Candy-Shop-%28Ft-Olivia%29-128.mp3",
+        "id": 5
+    },
+    {
+        "title": "On The Floor",
+        "artist": "Jennifer Lopez",
+        "image": "https://i1.sndcdn.com/artworks-000452356689-oonpzv-t500x500.jpg",
+        "audio": "https://ts2.tarafdari.com/contents/user300836/content-sound/on_the_floor_-_jennifer_lopez_ft_pitbull.mp3",
+        "id": 6
+    },
+    {
+        "title": "Rap God",
+        "artist": "Eminem",
+        "image": "https://ts1.tarafdari.com/contents/user116149/content-sound/eminem_1previewtemplate_display.png",
+        "audio": "https://dl.musicdel.ir/Music/1400/05/eminem_rap_god%20128.mp3",
+        "id": 7
+    },
+    {
+        "title": "The LBC",
+        "artist": "Eminem and Snoop Dogg",
+        "image": "https://ts11.tarafdari.com/contents/user760078/content-sound/img_20220624_102257_546.jpg",
+        "audio": "https://ts11.tarafdari.com/contents/user760078/content-sound/1_-_from_the_d_2_the_lbc_with_snoop_dogg.mp3",
+        "id": 8
     }
 ]
