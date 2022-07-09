@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const LibraryMusic = ({song, setCurrentSong, songs, playRef, isPlaying, setSongs, id}) => {
 
 
@@ -24,13 +26,16 @@ const LibraryMusic = ({song, setCurrentSong, songs, playRef, isPlaying, setSongs
 
 
     return(
-        <div onClick={musicSelectHandler} className={`library-music ${song.active ? 'selected' : ""}`}>
-            <img src={song.image}/>
-            <div className="music-info">
-                <h3>{song.title}</h3>
-                <h4>{song.artist}</h4>
+        <Link to={`${"/" + song.title}`}>
+            <div onClick={musicSelectHandler} className={`library-music ${song.active ? 'selected' : ""}`}>
+                <img src={song.image}/>
+                <div className="music-info">
+                    <h3>{song.title}</h3>
+                    <h4>{song.artist}</h4>
+                </div>
             </div>
-        </div>
+        </Link>
+
     )
 }
 export default LibraryMusic;

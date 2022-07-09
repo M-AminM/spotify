@@ -46,10 +46,10 @@ const App = () => {
               <Home songs={songs}/>
             </>}/>
 
-            <Route exact path="/track" render={() =>
+            <Route exact path="/:musicName" render={() =>
                <>
                      <Nav libraryStatus={libraryStatus} setLibraryStatus={setLibraryStatus}/>
-      <Song currentSong={currentSong}/>
+      <Song currentSong={currentSong} songs={songs} setCurrentSong={setCurrentSong} setLibraryStatus={setLibraryStatus}/>
       <Player playRef={playRef} isPlaying={isPlaying} setIsPlaying={setIsPlaying} songInfo={songInfo} setSongInfo={setSongInfo} currentSong={currentSong} setCurrentSong={setCurrentSong} songs={songs} setSongs={setSongs}/>
       <Library songs={songs} setCurrentSong={setCurrentSong} libraryStatus={libraryStatus} playRef={playRef} isPlaying={isPlaying} setSongs={setSongs}/>
 

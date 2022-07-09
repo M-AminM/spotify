@@ -1,7 +1,11 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlay, faPause, faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
+
 
 const Player = ({playRef, isPlaying, setIsPlaying, songInfo, setSongInfo, currentSong, setCurrentSong, songs, setSongs}) => {
+
+
 
     const playSongHandler = () => {
         if(isPlaying) {
@@ -66,9 +70,13 @@ const Player = ({playRef, isPlaying, setIsPlaying, songInfo, setSongInfo, curren
                 <p>{songInfo.duration ? showTime(songInfo.duration) : "0:00"}</p>
             </div>
             <div className="play-control">
-                <FontAwesomeIcon onClick={() => skipMusicHandler('skip-back')} className="back" icon={faAngleLeft}/>  
+                <Link to="/prev" onClick={() => skipMusicHandler('skip-back')}>
+                    <FontAwesomeIcon  className="back" icon={faAngleLeft}/> 
+                </Link> 
                 <FontAwesomeIcon onClick={playSongHandler} className="play" icon={isPlaying ? faPause : faPlay}/>
-                <FontAwesomeIcon onClick={() => skipMusicHandler('skip-forward')} className="forward" icon={faAngleRight}/>
+                <Link to="/next" onClick={() => skipMusicHandler('skip-forward')}>
+                    <FontAwesomeIcon className="forward" icon={faAngleRight}/>
+                </Link>
             </div>
         </div>
     );

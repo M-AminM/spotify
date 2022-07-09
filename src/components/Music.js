@@ -4,7 +4,7 @@ const Music = ({song}) => {
     return(
         <div>
             <h2>{song.title}</h2>
-            <Link to="/track">
+            <Link to={`${"/" + song.title}`}>
                 <img src={song.image}/>
             </Link>
         </div>
