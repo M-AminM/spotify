@@ -54,5 +54,65 @@
         "image": "https://ts11.tarafdari.com/contents/user760078/content-sound/img_20220624_102257_546.jpg",
         "audio": "https://ts11.tarafdari.com/contents/user760078/content-sound/1_-_from_the_d_2_the_lbc_with_snoop_dogg.mp3",
         "id": 8
+    },
+    {
+        "title": "Without Me",
+        "artist": "Eminem",
+        "image": "https://hypeddit-gates-prod.s3.amazonaws.com/9b3w9w_coverartmanual",
+        "audio": "https://dl.noostalgic.ir/dl/dl3/Eminem-Without-Me.mp3",
+        "id": 9
+    },
+    {
+        "title": "Still D.R.E",
+        "artist": "Snoop Dogg",
+        "image": "https://i1.sndcdn.com/artworks-000014401185-ae6yij-t500x500.jpg",
+        "audio": "https://dl.musicdel.ir/Music/1400/08/dr._dre ft snoop dogg_still_d.r.e 128.mp3",
+        "id": 10
+    },
+    {
+        "title": "Just a lil bit",
+        "artist": "50 Cent",
+        "image": "https://i1.sndcdn.com/artworks-0Elnwf75cnxt-0-t500x500.jpg",
+        "audio": "https://dl.musicdel.ir/Music/1400/05/50_cent_just_a%20lil%20bit%20128.mp3",
+        "id": 11
+    },
+    {
+        "title": "In The End",
+        "artist": "Mellen gi",
+        "image": "https://i1.sndcdn.com/artworks-Rp4uFJWrj2B1-0-t500x500.jpg",
+        "audio": "https://dl.baarzesh.net/music/2021/12/Mellen-Gi-Tommee-Profitt-In-the-end-remix.mp3?_=2",
+        "id": 12
+    },
+    {
+        "title": "Lovely",
+        "artist": "Billie Eilish",
+        "image": "https://i1.sndcdn.com/artworks-000569715155-8aqhqv-t500x500.jpg",
+        "audio": "https://ts2.tarafdari.com/contents/user398626/content-sound/billie_eilish_khalid_-_lovely.mp3",
+        "id": 13
+    },
+    {
+        "title": "NDA",
+        "artist": "Billie Eilish",
+        "image": "https://i1.sndcdn.com/artworks-wTlAl5zS3mejCuOy-mliCjQ-t500x500.jpg",
+        "audio": "http://dl.resamusic.ir//۰۰/۴/Billie Eilish - NDA.mp3",
+        "id": 14
+    },
+    {
+        "title": "Bad Guy",
+        "artist": "Billie Eilish",
+        "image": "https://i1.sndcdn.com/artworks-000584234423-y1fg41-t500x500.jpg",
+        "audio": "//dl.baarzesh.net/music/2021/11/Billie_Eilish-_Bad_Guy_128.mp3?_=1",
+        "id": 15
+    },
+    {
+        "title": "Therefore I Am",
+        "artist": "Billie Eilish",
+        "image": "https://i1.sndcdn.com/artworks-sgI69YNYjKIzWAQa-XjFMBw-t500x500.jpg",
+        "audio": "https://dl.javan-musics.com/Music/2021/04/08/Billie_Eilish_Therefore_I_Am_128.mp3",
+        "id": 16
     }
+
+
+
+    
 ]

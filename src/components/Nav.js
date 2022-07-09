@@ -5,10 +5,13 @@ import { Link } from "react-router-dom";
 
 const Nav = ({libraryStatus, setLibraryStatus}) => {
     return(
-        <nav>
+        <nav>{
+            !libraryStatus ?
             <Link to="/">
                 <h1>Spotify</h1>
             </Link>
+            : <h1></h1>
+            }
             <button onClick={() => setLibraryStatus(!libraryStatus)}>Musics <FontAwesomeIcon icon={faMusic}/></button>
            
         </nav>

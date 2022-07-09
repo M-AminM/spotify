@@ -5,8 +5,6 @@ import { Link } from "react-router-dom";
 
 const Player = ({playRef, isPlaying, setIsPlaying, songInfo, setSongInfo, currentSong, setCurrentSong, songs, setSongs}) => {
 
-
-
     const playSongHandler = () => {
         if(isPlaying) {
             playRef.current.pause();
@@ -42,7 +40,6 @@ const Player = ({playRef, isPlaying, setIsPlaying, songInfo, setSongInfo, curren
         setSongs(newSong);
     }
 
-
     const skipMusicHandler = async(direction) => {
         let currentIndex = songs.findIndex((song) => song.id === currentSong.id);
         if(direction === 'skip-forward') {
@@ -62,11 +59,18 @@ const Player = ({playRef, isPlaying, setIsPlaying, songInfo, setSongInfo, curren
         if(isPlaying) playRef.current.play();
     }
 
+    const trackAnimation = {
+        transform: `translateX(${songInfo.animationPer}%)`
+    }
+
     return(
         <div className="player">
             <div className="time-control">
                 <p>{showTime(songInfo.currentTime)}</p>
-                <input min={0} max={songInfo.duration || 0} type="range" onChange={rangeHandler} value={songInfo.currentTime}/>
+                <div className="track">
+                    <input min={0} max={songInfo.duration || 0} type="range" onChange={rangeHandler} value={songInfo.currentTime}/>
+                    <div style={trackAnimation} className="animate-track"></div>
+                </div>
                 <p>{songInfo.duration ? showTime(songInfo.duration) : "0:00"}</p>
             </div>
             <div className="play-control">

@@ -2,11 +2,9 @@ import { Link } from "react-router-dom";
 
 const LibraryMusic = ({song, setCurrentSong, songs, playRef, isPlaying, setSongs, id}) => {
 
-
     const musicSelectHandler = async() => {
         const selectSong = songs.filter((state) => state.id === song.id);
         await setCurrentSong(selectSong[0]);
-
 
         const newSong = songs.map((song) => {
             if(song.id === id) {
@@ -24,7 +22,6 @@ const LibraryMusic = ({song, setCurrentSong, songs, playRef, isPlaying, setSongs
         if(isPlaying) playRef.current.play();
     }
 
-
     return(
         <Link to={`${"/" + song.title}`}>
             <div onClick={musicSelectHandler} className={`library-music ${song.active ? 'selected' : ""}`}>
@@ -35,7 +32,6 @@ const LibraryMusic = ({song, setCurrentSong, songs, playRef, isPlaying, setSongs
                 </div>
             </div>
         </Link>
-
     )
 }
 export default LibraryMusic;
