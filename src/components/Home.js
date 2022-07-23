@@ -1,6 +1,9 @@
+import { useSelector } from "react-redux";
 import Music from "./Music";
 
-const Home = ({songs}) => {
+const Home = () => {
+    const songs = useSelector(state => state.songs); 
+       
     return(
         <div className="home">
             <div className="musics">

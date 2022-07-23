@@ -1,11 +1,16 @@
 import { useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
-const Song = ({currentSong, songs, setCurrentSong}) => {
-
+const Song = () => {
+    const currentSong = useSelector(state => state.current);
+    const songs = useSelector(state => state.songs);
+    const dispatch = useDispatch();
     const {musicName} = useParams();
+    
     songs.map((music) => {
         if(music.title === musicName) {
-            setCurrentSong(music);
+            dispatch({type: "Change-CurrentSong", value: music});
             music.active = true;
         }
     });

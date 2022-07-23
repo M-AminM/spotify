@@ -1,23 +1,29 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlay, faPause, faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
-
-const Player = ({playRef, isPlaying, setIsPlaying, songInfo, setSongInfo, currentSong, setCurrentSong, songs, setSongs}) => {
+const Player = ({playRef}) => {
+    const isPlay = useSelector(state => state.playing);
+    const currentSong = useSelector(state => state.current);
+    const songs = useSelector(state => state.songs);
+    const songInfo = useSelector(state => state.songInfo);
+    const dispatch = useDispatch();
 
     const playSongHandler = () => {
-        if(isPlaying) {
+        if(isPlay) {
             playRef.current.pause();
-            setIsPlaying(!isPlaying);
+            dispatch({type: "playing"});
         }else{
             playRef.current.play();
-            setIsPlaying(!isPlaying);
+            dispatch({type: "playing"});
         }
     }
 
     const rangeHandler = (e) => {
         playRef.current.currentTime = e.target.value;
-        setSongInfo({...songInfo, currentTime: e.target.value});
+        dispatch({type: "songInfo", value: {...songInfo, currentTime: e.target.value}});
     }
     const showTime = (time) => {
         return(
@@ -37,26 +43,26 @@ const Player = ({playRef, isPlaying, setIsPlaying, songInfo, setSongInfo, curren
                 }
             }
         });
-        setSongs(newSong);
+        dispatch({type: "Song", value: newSong})
     }
 
     const skipMusicHandler = async(direction) => {
         let currentIndex = songs.findIndex((song) => song.id === currentSong.id);
         if(direction === 'skip-forward') {
-            await setCurrentSong(songs[(currentIndex + 1) % songs.length]);
+            dispatch({type: "Change-CurrentSong", value: songs[(currentIndex + 1) % songs.length]});
             activeLibraryHandler(songs[(currentIndex + 1) % songs.length]);
         }
         if(direction === 'skip-back') {
             if((currentIndex - 1) % songs.length === -1){
-                await setCurrentSong(songs[songs.length - 1]);
+                dispatch({type: "Change-CurrentSong", value: songs[songs.length - 1]});
                 activeLibraryHandler(songs[songs.length - 1]);
-                if(isPlaying) playRef.current.play();;
+                if(isPlay) playRef.current.play();;
                 return; 
             }
-            await setCurrentSong(songs[(currentIndex - 1) % songs.length]);
+            dispatch({type: "Change-CurrentSong", value: songs[(currentIndex - 1) % songs.length]});
             activeLibraryHandler(songs[(currentIndex - 1) % songs.length]);
         }
-        if(isPlaying) playRef.current.play();
+        if(isPlay) playRef.current.play();
     }
 
     const trackAnimation = {
@@ -75,9 +81,9 @@ const Player = ({playRef, isPlaying, setIsPlaying, songInfo, setSongInfo, curren
             </div>
             <div className="play-control">
                 <Link to="/prev" onClick={() => skipMusicHandler('skip-back')}>
-                    <FontAwesomeIcon  className="back" icon={faAngleLeft}/> 
+                    <FontAwesomeIcon  className="back" icon={faAngleLeft}/>     
                 </Link> 
-                <FontAwesomeIcon onClick={playSongHandler} className="play" icon={isPlaying ? faPause : faPlay}/>
+                <FontAwesomeIcon onClick={playSongHandler} className="play" icon={isPlay ? faPause : faPlay}/>
                 <Link to="/next" onClick={() => skipMusicHandler('skip-forward')}>
                     <FontAwesomeIcon className="forward" icon={faAngleRight}/>
                 </Link>

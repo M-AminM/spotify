@@ -1,38 +1,33 @@
-import { useState } from "react";
 import Player from "./components/Player";
 import Song from "./components/Song";
 import './style/app.scss';
-import data from './data/data.json';
 import { useRef } from "react";
 import Library from "./components/Library";
 import Nav from "./components/Nav";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Home from "./components/Home";
+import { useDispatch, useSelector } from "react-redux";
 
 const App = () => {
   
-  const[songs, setSongs] = useState(data);
-  const[currentSong, setCurrentSong] = useState(data[0]);
-  const[isPlaying, setIsPlaying] = useState(false);
-  const[songInfo, setSongInfo] = useState({
-    currentTime: 0, 
-    duration: 0,
-    animationPer: 0,
-  });
-  const[libraryStatus, setLibraryStatus] = useState(false);
-
+  const isPlay = useSelector(state => state.play);
+  const libraryStatus = useSelector(state => state.liStatus);
+  const currentSong = useSelector(state => state.current);
+  const songs = useSelector(state => state.songs);
+  const songInfo = useSelector(state => state.songInfo);
+  const dispatch = useDispatch();
   const playRef = useRef(null);
 
   const songEndHandler = async() => {
     let currentIndex = songs.findIndex((song) => song.id === currentSong.id);
-    await setCurrentSong(songs[(currentIndex + 1) % songs.length]);
-    if(isPlaying) playRef.current.play();
-}
+    dispatch({type: "Change-CurrentSong", value: songs[(currentIndex + 1) % songs.length]});
+    if(isPlay) playRef.current.play();
+  }
   const timeUpdateHandler = (e) => {
     const currentTime = Math.round(e.target.currentTime);
     const duration = Math.round(e.target.duration);
     const animation = Math.round((currentTime / duration) * 100);
-    setSongInfo({...songInfo, currentTime: currentTime, duration: duration, animationPer: animation});
+    dispatch({type: "songInfo", value: {...songInfo, currentTime: currentTime, duration: duration, animationPer: animation}});
   }
 
   return(
@@ -41,15 +36,15 @@ const App = () => {
           <Switch>
           <Route exact path="/" render={() =>
             <>
-              <Home songs={songs}/>
+              <Home/>
             </>}/>
 
             <Route exact path="/:musicName" render={() =>
             <>
-              <Nav libraryStatus={libraryStatus} setLibraryStatus={setLibraryStatus}/>
-              <Song currentSong={currentSong} songs={songs} setCurrentSong={setCurrentSong} setLibraryStatus={setLibraryStatus}/>
-              <Player playRef={playRef} isPlaying={isPlaying} setIsPlaying={setIsPlaying} songInfo={songInfo} setSongInfo={setSongInfo} currentSong={currentSong} setCurrentSong={setCurrentSong} songs={songs} setSongs={setSongs}/>
-              <Library songs={songs} setCurrentSong={setCurrentSong} libraryStatus={libraryStatus} playRef={playRef} isPlaying={isPlaying} setSongs={setSongs}/>
+              <Nav/>
+              <Song/>
+              <Player playRef={playRef}/>
+              <Library playRef={playRef}/>
               <audio src={currentSong.audio} ref={playRef} onTimeUpdate={timeUpdateHandler} onLoadedMetadata={timeUpdateHandler} onEnded={songEndHandler}></audio>
             </>
           }/>

@@ -2,8 +2,13 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMusic } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
-const Nav = ({libraryStatus, setLibraryStatus}) => {
+const Nav = () => {
+    const libraryStatus = useSelector(state => state.liStatus);
+    const dispatch = useDispatch();
+
     return(
         <nav>{
             !libraryStatus ?
@@ -12,7 +17,7 @@ const Nav = ({libraryStatus, setLibraryStatus}) => {
             </Link>
             : <h1></h1>
             }
-            <button onClick={() => setLibraryStatus(!libraryStatus)}>Musics <FontAwesomeIcon icon={faMusic}/></button>
+            <button onClick={() => dispatch({type: "libraryStatus"})}>Musics <FontAwesomeIcon icon={faMusic}/></button>
            
         </nav>
     );

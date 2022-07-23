@@ -1,10 +1,15 @@
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
-const LibraryMusic = ({song, setCurrentSong, songs, playRef, isPlaying, setSongs, id}) => {
+const LibraryMusic = ({song, playRef, id}) => {
+    const isPlay = useSelector(state => state.playing); 
+    const songs = useSelector(state => state.songs);
+    const dispatch = useDispatch();
 
     const musicSelectHandler = async() => {
         const selectSong = songs.filter((state) => state.id === song.id);
-        await setCurrentSong(selectSong[0]);
+        dispatch({type: "Change-CurrentSong", value: selectSong[0]});
 
         const newSong = songs.map((song) => {
             if(song.id === id) {
@@ -17,9 +22,8 @@ const LibraryMusic = ({song, setCurrentSong, songs, playRef, isPlaying, setSongs
                 }
             }
         });
-        console.log(newSong);
-        setSongs(newSong); 
-        if(isPlaying) playRef.current.play();
+        dispatch({type: "Song", value: newSong})
+        if(isPlay) playRef.current.play();
     }
 
     return(
